@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jubayerul Hasan — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070a14;--card:#111728;--primary:#00f2fe;--secondary:#4facfe;--gold:#ffbe0b;--green:#00f59b;--text:#fff;--muted:#9ba4b5;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hind Siliguri',sans-serif;background:radial-gradient(circle at 50% 0%,#131b36 0%,#05070e 100%);color:var(--text);min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:0 20px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:40px 20px}
+.hero::before{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(0,242,254,.15),transparent 70%);top:10%;border-radius:50%;filter:blur(40px);z-index:-1}
+.badge{display:inline-block;background:linear-gradient(90deg,var(--gold),#ff8800);color:#000;font-family:'Orbitron';font-weight:900;font-size:11px;padding:6px 18px;border-radius:50px;margin-bottom:20px;box-shadow:0 4px 15px rgba(255,190,11,.35)}
+.hero h1{font-family:'Orbitron';font-size:clamp(28px,7vw,52px);background:linear-gradient(90deg,#fff,var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
+.hero .tag{margin-top:12px;font-size:clamp(14px,3.5vw,18px);color:var(--primary);font-weight:600}
+.hero .sub{margin-top:8px;color:var(--muted);font-size:14px}
+.hero-btns{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{padding:12px 28px;border-radius:14px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:.2s}
+.btn-primary{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#000;box-shadow:0 8px 20px rgba(0,242,254,.3)}
+.btn-ghost{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.15)}
+.btn:active{transform:scale(.96)}
+.scroll-hint{margin-top:50px;color:var(--muted);font-size:12px;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* SECTIONS */
+section{padding:70px 0}
+.section-title{font-family:'Orbitron';font-size:clamp(20px,5vw,28px);color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.section-title span{color:var(--primary)}
+.section-desc{color:var(--muted);font-size:14px;margin-bottom:30px;max-width:600px}
+
+/* CARDS */
+.card{background:linear-gradient(145deg,rgba(22,30,56,.9),rgba(10,14,28,.95));border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.about-text{font-size:15px;line-height:1.8;color:#d7dde8}
+.about-text b{color:var(--primary)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:24px}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;text-align:center}
+.stat .num{font-family:'Orbitron';font-size:26px;color:var(--primary);font-weight:900}
+.stat .lbl{font-size:12px;color:var(--muted);margin-top:4px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.skill{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;transition:.25s}
+.skill:hover{transform:translateY(-4px);border-color:rgba(0,242,254,.4);box-shadow:0 8px 25px rgba(0,242,254,.12)}
+.skill h3{font-size:16px;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.skill .bar{height:7px;background:rgba(255,255,255,.08);border-radius:10px;overflow:hidden;margin-top:10px}
+.skill .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:10px;width:0;transition:width 1.4s ease}
+.skill small{color:var(--muted);font-size:12px;display:block;margin-top:8px}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;margin-top:10px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--primary),transparent)}
+.tl-item{position:relative;margin-bottom:28px}
+.tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--primary);box-shadow:0 0 12px var(--primary)}
+.tl-item h3{font-size:16px;color:#fff}
+.tl-item .meta{font-size:12px;color:var(--gold);margin:4px 0 8px;font-weight:600}
+.tl-item p{font-size:14px;color:#c4cbd8;line-height:1.6}
+
+/* CONTACT */
+.contact-box{text-align:center}
+.contact-box p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact-links a{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:10px 20px;border-radius:12px;font-size:14px;transition:.2s}
+.contact-links a:hover{background:var(--primary);color:#000}
+
+footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:12px;border-top:1px solid rgba(255,255,255,.06)}
+footer b{color:var(--gold)}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">PORTFOLIO • 2026</div>
+  <h1>JUBAYERUL HASAN</h1>
+  <div class="tag">Student • Digital Marketer • Creative Creator</div>
+  <div class="sub">Part-time Digital Marketer | Video • Audio • Song • Promotion</div>
+  <div class="hero-btns">
+    <button class="btn btn-primary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">আমার সম্পর্কে</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ</button>
+  </div>
+  <div class="scroll-hint">▼ স্ক্রল করুন</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="container">
+  <div class="reveal">
+    <div class="section-title"><span>01.</span> আমার সম্পর্কে</div>
+    <div class="section-desc">সংক্ষেপে আমার পরিচয়, পড়াশোনা ও কাজের অভিজ্ঞতা।</div>
+    <div class="card">
+      <p class="about-text">
+        আমি <b>Jubayerul Hasan</b> — একজন শিক্ষার্থী এবং পার্ট-টাইম ডিজিটাল মার্কেটার। বর্তমানে <b>Sylhet Polytechnic Institute</b>-এ <b>Civil Technology</b> বিভাগে অধ্যয়নরত। গত <b>২ বছর</b> ধরে ডিজিটাল মার্কেটিং, বিজ্ঞাপন, ভিডিও/অডিও/গান তৈরি এবং প্রচারের কাজের সাথে যুক্ত। কম্পিউটারের সাথে আমার <b>৬ বছরের</b> অভিজ্ঞতা রয়েছে, যা আমাকে টেকনিক্যাল ও ক্রিয়েটিভ কাজে সহায়তা করে। ভবিষ্যতে ভালো কিছু করার ইচ্ছা ও চেষ্টা নিয়ে কাজ করে যাচ্ছি।
+      </p>
+      <div class="stats">
+        <div class="stat"><div class="num">2+</div><div class="lbl">বছরের অভিজ্ঞতা</div></div>
+        <div class="stat"><div class="num">6+</div><div class="lbl">বছরের কম্পিউটার ব্যবহার</div></div>
+        <div class="stat"><div class="num">Civil</div><div class="lbl">Technology (SPI)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="container">
+  <div class="reveal">
+    <div class="section-title"><span>02.</span> স্কিল</div>
+    <div class="section-desc">যেসব কাজে আমি হাত পাকিয়েছি।</div>
+    <div class="skills-grid">
+      <div class="skill">
+        <h3>📣 Digital Marketing</h3>
+        <small>Advertise, Promotion, Audience</small>
+        <div class="bar"><i data-w="85%"></i></div>
+      </div>
+      <div class="skill">
+        <h3>🎬 Video & Audio Making</h3>
+        <small>Editing, Song, Creative Content</small>
+        <div class="bar"><i data-w="80%"></i></div>
+      </div>
+      <div class="skill">
+        <h3>💻 Computer Skills</h3>
+        <small>6+ years experience</small>
+        <div class="bar"><i data-w="90%"></i></div>
+      </div>
+      <div class="skill">
+        <h3>📢 Advertising</h3>
+        <small>Campaign, Post Promotion</small>
+        <div class="bar"><i data-w="80%"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE & EDUCATION -->
+<section class="container">
+  <div class="reveal">
+    <div class="section-title"><span>03.</span> অভিজ্ঞতা ও শিক্ষা</div>
+    <div class="section-desc">আমার পথচলা সংক্ষেপে।</div>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <h3>Part-time Digital Marketer</h3>
+          <div class="meta">২ বছর ধরে • চলমান</div>
+          <p>ডিজিটাল মার্কেটিং, বিজ্ঞাপন, ভিডিও/অডিও/গান তৈরি ও প্রচারের কাজ করছি।</p>
+        </div>
+        <div class="tl-item">
+          <h3>Civil Technology — Diploma</h3>
+          <div class="meta">Sylhet Polytechnic Institute • চলমান</div>
+          <p>বর্তমানে Civil Technology বিভাগে অধ্যয়নরত।</p>
+        </div>
+        <div class="tl-item">
+          <h3>Computer ব্যবহার — ৬ বছর</h3>
+          <div class="meta">২০১৯ থেকে</div>
+          <p>কম্পিউটারের সাথে দীর্ঘ অভিজ্ঞতা; টেকনিক্যাল ও ক্রিয়েটিভ কাজে ব্যবহার।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOAL -->
+<section class="container">
+  <div class="reveal">
+    <div class="section-title"><span>04.</span> লক্ষ্য</div>
+    <div class="card">
+      <p class="about-text">
+        ভবিষ্যতে আরও ভালো কিছু করার ইচ্ছা আছে — ডিজিটাল মার্কেটিং ও ক্রিয়েটিভ কাজে নিজের দক্ষতা বাড়িয়ে, শিক্ষা ও কাজের অভিজ্ঞতা একসাথে কাজে লাগাতে চাই। 💪
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container">
+  <div class="reveal">
+    <div class="section-title"><span>05.</span> যোগাযোগ</div>
+    <div class="card contact-box">
+      <p>কাজ বা যেকোনো বিষয়ে যোগাযোগ করতে পারেন।</p>
+      <div class="contact-links">
+        <a href="https://www.facebook.com/Jubayerbidcngff" target="_blank">📘 Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 <b>Jubayerul Hasan</b> — All rights reserved.
+</footer>
+
+<script>
+/* Scroll reveal */
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+      const bars=e.target.querySelectorAll('.bar i');
+      bars.forEach(b=>{b.style.width=b.dataset.w;});
+    }
+  });
+},{threshold:.15});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>
